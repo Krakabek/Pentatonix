@@ -1,4 +1,4 @@
-import {Intervals} from "./intervals";
+import {applyInterval, Intervals} from "./intervals";
 import {Notes} from "./notes";
 import {Scaler} from "./scaler";
 import {MajorScale, MinorScale} from "./scales";
@@ -13,7 +13,7 @@ describe("intervals", () => {
                 [Notes.B, Notes.C],
             ];
             halfSteps.forEach((pair) => {
-                expect(Intervals.halfStep(pair[0])).toBe(pair[1]);
+                expect(applyInterval(pair[0], Intervals.halfStep)).toBe(pair[1]);
             });
         })
     });
@@ -22,7 +22,7 @@ describe("intervals", () => {
         it("should return corresponding step", () => {
             const halfSteps = [[Notes.A, Notes.B], [Notes.G, Notes.A], [Notes.E, Notes.F_sharp]];
             halfSteps.forEach((pair) => {
-                expect(Intervals.step(pair[0])).toBe(pair[1]);
+                expect(applyInterval(pair[0], Intervals.step)).toBe(pair[1]);
             });
         })
     });

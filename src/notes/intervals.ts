@@ -1,14 +1,22 @@
 import {AllNotes, Notes} from "./notes";
 
-export class Intervals {
+export enum Intervals {
+    unison,
+    halfStep,
+    step,
+    minorThird,
+    majorThird,
+    fourth,
+    tritone,
+    fifth,
+    minorSixth,
+    majorSixth,
+    minorSeventh,
+    majorSeventh,
+    octave,
+}
 
-    static halfStep(note: Notes) {
-        const noteIntex = AllNotes.indexOf(note);
-        return AllNotes[(noteIntex + 1) % AllNotes.length];
-    }
-
-    static step(note: Notes) {
-        const noteIntex = AllNotes.indexOf(note);
-        return AllNotes[(noteIntex + 2) % AllNotes.length];
-    }
+export function applyInterval(rootNote: Notes, interval: number) {
+    const noteIntex = AllNotes.indexOf(rootNote);
+    return AllNotes[(noteIntex + interval) % AllNotes.length];
 }

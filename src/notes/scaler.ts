@@ -1,18 +1,16 @@
+import {applyInterval} from "./intervals";
 import {Notes} from "./notes";
 
-export type ScaleInterval = (note: Notes) => Notes;
-export type ScaleConfig = Array<ScaleInterval>;
+export type ScaleConfig = Array<number>;
 export type Scale = Array<Notes>;
 
 export class Scaler {
     static createScale(rootNote: Notes, scaleConfig: ScaleConfig): Scale {
-        const result = [rootNote];
-        let previousNote = rootNote;
-        for (let i = 0; i < scaleConfig.length; i++) {
-            const nextNote = scaleConfig[i](previousNote);
-            result.push(nextNote);
-            previousNote = nextNote;
-        }
-        return result;
+        return scaleConfig.reduce((scale, currentInterval, index) => {
+            return [
+                ...scale,
+                applyInterval(scale[index], currentInterval),
+            ]
+        }, [rootNote]);
     }
 }
