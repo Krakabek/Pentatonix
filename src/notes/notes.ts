@@ -1,5 +1,3 @@
-import {Intervals} from "./intervals";
-
 export enum Notes {
     A,
     A_sharp,
@@ -14,6 +12,21 @@ export enum Notes {
     G,
     G_sharp,
 }
+
+export const NoteNames: { [key in Notes]: string } = {
+    [Notes.A]: "A",
+    [Notes.A_sharp]: "A#",
+    [Notes.B]: "B",
+    [Notes.C]: "C",
+    [Notes.C_sharp]: "C#",
+    [Notes.D]: "D",
+    [Notes.D_sharp]: "D#",
+    [Notes.E]: "E",
+    [Notes.F]: "F",
+    [Notes.F_sharp]: "F#",
+    [Notes.G]: "G",
+    [Notes.G_sharp]: "G#",
+};
 
 export const AllNotes = [
     Notes.A,
