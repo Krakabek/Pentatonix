@@ -1,7 +1,7 @@
 import {applyInterval, Intervals} from "./intervals";
 import {Notes} from "./notes";
 import {Scaler} from "./scaler";
-import {MajorScale, MinorScale} from "./scales";
+import {MajorPentatonicScale, MajorScale, MinorPentatonicScale, MinorScale} from "./scales";
 
 describe("intervals", () => {
     describe("half-step", () => {
@@ -42,5 +42,10 @@ describe("scales", () => {
     it("should create major scale by given major scale config", () => {
         expect(Scaler.createScale(Notes.C, MajorScale))
             .toEqual([Notes.C, Notes.D, Notes.E, Notes.F, Notes.G, Notes.A, Notes.B]);
+    });
+
+    it("should create major pentatonic scale by given scale config", () => {
+        expect(Scaler.createScale(Notes.C, MajorPentatonicScale))
+            .toEqual([Notes.C, Notes.D, Notes.E, Notes.G, Notes.A]);
     });
 });
