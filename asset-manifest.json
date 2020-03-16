@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Pentatonix/static/css/main.1de31bfc.chunk.css",
-    "main.js": "/Pentatonix/static/js/main.df623ac7.chunk.js",
-    "main.js.map": "/Pentatonix/static/js/main.df623ac7.chunk.js.map",
+    "main.js": "/Pentatonix/static/js/main.2472b43d.chunk.js",
+    "main.js.map": "/Pentatonix/static/js/main.2472b43d.chunk.js.map",
     "runtime-main.js": "/Pentatonix/static/js/runtime-main.f83c0f0c.js",
     "runtime-main.js.map": "/Pentatonix/static/js/runtime-main.f83c0f0c.js.map",
-    "static/js/2.fcc13936.chunk.js": "/Pentatonix/static/js/2.fcc13936.chunk.js",
-    "static/js/2.fcc13936.chunk.js.map": "/Pentatonix/static/js/2.fcc13936.chunk.js.map",
+    "static/js/2.635fbedb.chunk.js": "/Pentatonix/static/js/2.635fbedb.chunk.js",
+    "static/js/2.635fbedb.chunk.js.map": "/Pentatonix/static/js/2.635fbedb.chunk.js.map",
     "index.html": "/Pentatonix/index.html",
-    "precache-manifest.543168e8ce86e877d3dcbd45d6723692.js": "/Pentatonix/precache-manifest.543168e8ce86e877d3dcbd45d6723692.js",
+    "precache-manifest.53a04fe73ddb5ecc5deb9f1ce9deaf7e.js": "/Pentatonix/precache-manifest.53a04fe73ddb5ecc5deb9f1ce9deaf7e.js",
     "service-worker.js": "/Pentatonix/service-worker.js",
     "static/css/main.1de31bfc.chunk.css.map": "/Pentatonix/static/css/main.1de31bfc.chunk.css.map",
-    "static/js/2.fcc13936.chunk.js.LICENSE.txt": "/Pentatonix/static/js/2.fcc13936.chunk.js.LICENSE.txt"
+    "static/js/2.635fbedb.chunk.js.LICENSE.txt": "/Pentatonix/static/js/2.635fbedb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f83c0f0c.js",
-    "static/js/2.fcc13936.chunk.js",
+    "static/js/2.635fbedb.chunk.js",
     "static/css/main.1de31bfc.chunk.css",
-    "static/js/main.df623ac7.chunk.js"
+    "static/js/main.2472b43d.chunk.js"
   ]
 }
