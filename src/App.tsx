@@ -1,3 +1,4 @@
+import NoSleep from "nosleep.js";
 import React, {ChangeEvent} from "react";
 import "./App.scss";
 import {AllNotes, NoteNames, Notes} from "./notes/notes";
@@ -6,12 +7,29 @@ import {AllScales, ScaleInfo} from "./notes/scales";
 import {GuitarNeckFretNumbers, GuitarString} from "./views/string";
 
 class App extends React.Component<{}, { scaleInfo: ScaleInfo, rootNote: Notes }> {
+    private noSleep: NoSleep;
+
     constructor(props: {}) {
         super(props);
         this.state = {
             scaleInfo: AllScales[0],
             rootNote: Notes.A,
         };
+
+        this.noSleep = new NoSleep();
+    }
+
+    enableNoSleep = () => {
+        try {
+            this.noSleep.enable();
+        } catch {
+            // no luck today ¯\_(ツ)_/¯
+        }
+        document.removeEventListener("touchstart", this.enableNoSleep, false);
+    };
+
+    componentDidMount(): void {
+        document.addEventListener("touchstart", this.enableNoSleep, false);
     }
 
     private onRootNoteChange = (event: ChangeEvent<HTMLSelectElement>) => {
