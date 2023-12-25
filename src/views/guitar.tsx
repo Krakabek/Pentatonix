@@ -1,6 +1,7 @@
 import * as React from "react";
 import {applyInterval, Intervals} from "../notes/intervals";
 import {NoteNames, Notes} from "../notes/notes";
+import {InstrumentRenderer} from "../types";
 
 interface NoteProps {
     note: Notes;
@@ -78,3 +79,16 @@ export function GuitarNeckFretNumbers() {
         </div>
     </div>
 }
+
+
+export const GuitarNeck: InstrumentRenderer = (props) => {
+    return <div className="p-neck">
+        <GuitarString note={Notes.E} notesInScale={props.allowedNotes}/>
+        <GuitarString note={Notes.B} notesInScale={props.allowedNotes}/>
+        <GuitarString note={Notes.G} notesInScale={props.allowedNotes}/>
+        <GuitarString note={Notes.D} notesInScale={props.allowedNotes}/>
+        <GuitarString note={Notes.A} notesInScale={props.allowedNotes}/>
+        <GuitarString note={Notes.E} notesInScale={props.allowedNotes}/>
+        <GuitarNeckFretNumbers/>
+    </div>;
+};

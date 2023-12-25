@@ -1,69 +1,69 @@
 .p-string {
-    display: flex;
+  display: flex;
 }
 
 .p-string-note {
-    width: 20px;
-    text-align: center;
+  width: 20px;
+  text-align: center;
 }
 
 .p-string__frets {
-    display: flex;
+  display: flex;
 }
 
 $fret-width: 50px;
 
 %p-fret-base {
-    width: $fret-width;
-    text-align: center;
+  width: $fret-width;
+  text-align: center;
 }
 
 .p-fake-fret {
-    @extend %p-fret-base;
+  @extend %p-fret-base;
 }
 
 .p-fret {
-    @extend %p-fret-base;
-    position: relative;
-    height: 24px;
-    box-sizing: border-box;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @extend %p-fret-base;
+  position: relative;
+  height: 24px;
+  box-sizing: border-box;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    & + & {
-        border-left: none;
-    }
+  & + & {
+    border-left: none;
+  }
 
-    &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: calc(50%);
-        height: 1px;
-        background-color: black;
-    }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50%);
+    height: 1px;
+    background-color: black;
+  }
 
-    &--active {
-        &::after {
-            content: "";
-            display: block;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: royalblue;
-            position: relative;
-            z-index: 1;
-        }
+  &--active {
+    &::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: royalblue;
+      position: relative;
+      z-index: 1;
     }
+  }
 
-    &--root::after {
-        background-color: darkblue;
-    }
+  &--root::after {
+    background-color: darkblue;
+  }
 }
 
 .p-fret:nth-child(1),
@@ -72,30 +72,67 @@ $fret-width: 50px;
 .p-fret:nth-child(7),
 .p-fret:nth-child(9),
 .p-fret:nth-child(12) {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 .p-neck {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.p-piano {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.p-key {
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-top-width: 1px;
+
+  &--white {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 200px;
+    border-width: 1px;
+  }
+
+  &--black {
+    $black-width: 20px;
+    flex: 0 0 auto;
+    width: $black-width;
+    height: 140px;
+    background: black;
+    margin-left: -$black-width;
+    transform: translateX(50%);
+  }
+
+  &--active {
+    background-color: #a4bafd;
+  }
+  &--root {
+    background-color: #39519d;
+  }
 }
 
 .App {
-    display: inline-block;
-    margin-top: 20px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 #root {
-    text-align: center;
+  text-align: center;
 }
 
 @media screen and (max-width: 767px) and (orientation: portrait) {
-    html {
-        transform: rotate(90deg);
-        transform-origin: left top;
-        width: 100vh;
-        overflow-x: hidden;
-        position: absolute;
-        top: 0;
-        left: 100%;
-    }
+  html {
+    transform: rotate(90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
 }

@@ -4,9 +4,11 @@ import "./App.scss";
 import {AllNotes, NoteNames, Notes} from "./notes/notes";
 import {Scaler} from "./notes/scaler";
 import {AllScales, ScaleInfo} from "./notes/scales";
-import {GuitarNeckFretNumbers, GuitarString} from "./views/string";
+import {Instrument} from "./types";
+import {GuitarNeck} from "./views/guitar";
+import {Piano} from "./views/piano";
 
-class App extends React.Component<{}, { scaleInfo: ScaleInfo, rootNote: Notes }> {
+class App extends React.Component<{}, { scaleInfo: ScaleInfo, rootNote: Notes, instrument: Instrument }> {
     private noSleep: NoSleep;
 
     constructor(props: {}) {
@@ -14,6 +16,7 @@ class App extends React.Component<{}, { scaleInfo: ScaleInfo, rootNote: Notes }>
         this.state = {
             scaleInfo: AllScales[0],
             rootNote: Notes.A,
+            instrument: Instrument.guitar,
         };
 
         this.noSleep = new NoSleep();
@@ -44,11 +47,27 @@ class App extends React.Component<{}, { scaleInfo: ScaleInfo, rootNote: Notes }>
         });
     };
 
-    render() {
+    private onInstrumentChange = (event: ChangeEvent<HTMLSelectElement>) => {
+        this.setState({
+            instrument: event.target.value as Instrument,
+        });
+    };
+
+    private renderInstrument = (): JSX.Element => {
         const allowedNotes = Scaler.createScale(this.state.rootNote, this.state.scaleInfo.scale);
+        if (this.state.instrument === Instrument.guitar) {
+            return (<GuitarNeck allowedNotes={allowedNotes}/>);
+        }
+        if (this.state.instrument === Instrument.piano) {
+            return (<Piano allowedNotes={allowedNotes}/>);
+        }
+        return (<GuitarNeck allowedNotes={allowedNotes}/>);
+    }
+
+    render() {
         return (
             <div className="App">
-                <GuitarNeck allowedNotes={allowedNotes}/>
+                {this.renderInstrument()}
                 <select name="root-note"
                         id="root-note"
                         value={this.state.rootNote}
@@ -71,21 +90,23 @@ class App extends React.Component<{}, { scaleInfo: ScaleInfo, rootNote: Notes }>
                         </option>;
                     })}
                 </select>
+                <select name="instrument"
+                        id="instrument"
+                        value={this.state.instrument}
+                        onChange={this.onInstrumentChange}>
+                    <option value={Instrument.guitar}
+                            key={Instrument.guitar}>
+                        Guitar
+                    </option>
+                    <option value={Instrument.piano}
+                            key={Instrument.piano}>
+                        Piano
+                    </option>
+                </select>
             </div>
         );
     }
 }
 
-export function GuitarNeck(props: { allowedNotes: Array<Notes> }) {
-    return <div className="p-neck">
-        <GuitarString note={Notes.E} notesInScale={props.allowedNotes}/>
-        <GuitarString note={Notes.B} notesInScale={props.allowedNotes}/>
-        <GuitarString note={Notes.G} notesInScale={props.allowedNotes}/>
-        <GuitarString note={Notes.D} notesInScale={props.allowedNotes}/>
-        <GuitarString note={Notes.A} notesInScale={props.allowedNotes}/>
-        <GuitarString note={Notes.E} notesInScale={props.allowedNotes}/>
-        <GuitarNeckFretNumbers/>
-    </div>
-}
 
 export default App;
