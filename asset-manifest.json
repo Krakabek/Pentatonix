@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/Pentatonix/static/css/main.1de31bfc.chunk.css",
-    "main.js": "/Pentatonix/static/js/main.2472b43d.chunk.js",
-    "main.js.map": "/Pentatonix/static/js/main.2472b43d.chunk.js.map",
-    "runtime-main.js": "/Pentatonix/static/js/runtime-main.f83c0f0c.js",
-    "runtime-main.js.map": "/Pentatonix/static/js/runtime-main.f83c0f0c.js.map",
-    "static/js/2.635fbedb.chunk.js": "/Pentatonix/static/js/2.635fbedb.chunk.js",
-    "static/js/2.635fbedb.chunk.js.map": "/Pentatonix/static/js/2.635fbedb.chunk.js.map",
+    "main.css": "/Pentatonix/static/css/main.a9e8f744.css",
+    "main.js": "/Pentatonix/static/js/main.fe38e145.js",
     "index.html": "/Pentatonix/index.html",
-    "precache-manifest.53a04fe73ddb5ecc5deb9f1ce9deaf7e.js": "/Pentatonix/precache-manifest.53a04fe73ddb5ecc5deb9f1ce9deaf7e.js",
-    "service-worker.js": "/Pentatonix/service-worker.js",
-    "static/css/main.1de31bfc.chunk.css.map": "/Pentatonix/static/css/main.1de31bfc.chunk.css.map",
-    "static/js/2.635fbedb.chunk.js.LICENSE.txt": "/Pentatonix/static/js/2.635fbedb.chunk.js.LICENSE.txt"
+    "main.a9e8f744.css.map": "/Pentatonix/static/css/main.a9e8f744.css.map",
+    "main.fe38e145.js.map": "/Pentatonix/static/js/main.fe38e145.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.f83c0f0c.js",
-    "static/js/2.635fbedb.chunk.js",
-    "static/css/main.1de31bfc.chunk.css",
-    "static/js/main.2472b43d.chunk.js"
+    "static/css/main.a9e8f744.css",
+    "static/js/main.fe38e145.js"
   ]
 }
